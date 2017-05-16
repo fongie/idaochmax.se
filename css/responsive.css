@@ -1,0 +1,128 @@
+@media screen and (min-width: 480px) {		/* target media screen (inte print) och detta gäller enbart när minimibredden är 480px, en vanlig tablets bredd*/
+	
+	/****************
+	TWO COLUMN LAYOUT
+	****************/
+	
+	#primary {
+		width: 50%;
+		float: left;
+	}
+	
+	
+	#secondary {
+		width: 40%;
+		float: right;
+	}
+	
+
+	/****************
+	PAGE: STORY
+	****************/
+	
+	#postlista li img {
+		position: relative;
+		z-index: 0;
+		transition: all 1s ease-out 0.25s;
+
+	}
+	
+	#postlista li img:hover {
+		transform: scale(2);
+		color: #eee;
+		position: relative;
+		z-index: 2;
+	}
+	
+	#postlista li p {
+		font-size: 1.2em;
+		position: relative;
+		z-index: 1;
+	}
+	
+	#postlista li img:hover + p {
+		position: relative;
+		z-index: 3;
+		transition: all 1s ease-out 0.25s;
+		color: #eee;
+	}
+	
+	/****************
+	PAGE: BILDSIDOR
+	****************/
+	
+	#gallery li {
+		width: 28.3333%;
+		transition: transform 2s 0.5s;
+	}
+	
+	#gallery li:hover {
+		transform: scale(3);
+	}
+	
+	/* DETTA FUCKAR UPP BILDLISTORNA?
+	#gallery li:nth-child(4n) {
+		clear: left;
+	}
+	*/
+}
+
+
+@media screen and (min-width: 660px) {	/* för stora skärmar */
+
+
+	/****************
+	HEADER
+	****************/
+	
+	nav {
+		background: none;
+		float: right;
+		font-size: 1.125em;
+		margin-right: 5%;
+		text-align: right;
+		width: 45%;
+	}
+
+	#logo {
+		float: left;
+		margin-left: 5%;
+		text-align: left;
+		width: 45%;
+	}
+
+	h1 {
+		font-size: 2.5em;
+	}
+	
+	h2 {
+		font-size: 0.825em;
+		margin-bottom: 20px;
+	}
+
+	header {
+		border-bottom: 5px solid #66004d;
+		margin-bottom: 60px;
+	}
+	
+	
+	/****************
+	PAGE: STORY
+	****************/
+	
+	#postlista li {
+		max-width: 40%;
+	}
+	#postlista li p {
+		font-size: 1.5em;
+	}
+	
+	.primary {
+		float: left;
+	}
+	
+	.secondary {
+		float: right;
+	}
+
+}
