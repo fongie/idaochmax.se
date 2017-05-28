@@ -1,0 +1,20 @@
+#coding=UTF-8
+import blogtojson
+
+blogtojson.main("20160628", "Framme i Quito!", "Ida", "IMG_1.JPG")
+blogtojson.main("20160629", "Dag 2 i Quito", "Ida", "IMG_4496.JPG")
+blogtojson.main("20160701", "Vulkanäventyr", "Max", "IMG_4562.JPG")
+blogtojson.main("20160705", "Fler dagar i Quito", "Ida", "IMG_4571.JPG")
+blogtojson.main("20160707", "Ridäventyr i en krater", "Max", "IMG_4599.JPG")
+blogtojson.main("20160708", "Djupt in i Amazonas djungel!", "Max", "DSC_0111.JPG")
+blogtojson.main("20160709", "Dag två i Amazonas!", "Max", "DSC_0197.JPG")
+blogtojson.main("20160710", "Dag tre i Amazonas!", "Max", "IMG_1997.JPG")
+blogtojson.main("20160711", "Sista heldagen i Amazonas", "Max", "IMG_2073.JPG")
+blogtojson.main("20160716", "Tre dagar på Galapagos!", "Ida & Max", "IMG_4748.JPG")
+blogtojson.main("20160720", "Sista dagarna på Galapagos", "Max", "IMG_5116.JPG")
+blogtojson.main("20160723", "Från Guayaquil till Cusco", "Max", "DSC_0317.JPG")
+blogtojson.main("20160731", "5 dagars vandring i Anderna", "Ida & Max", "IMG_5301.JPG")
+blogtojson.main("20160804", "Bolivia och apreservatet", "Ida", "IMG_5423.JPG")
+blogtojson.main("20160809", "Vattenfall och La Paz", "Max", "2.jpg")
+blogtojson.main("20160814", "Matavslutning i Lima", "Max", "DSC_0430.JPG")
+blogtojson.main("20160817", "Hemma", "Max", "IMG_4666.JPG")
