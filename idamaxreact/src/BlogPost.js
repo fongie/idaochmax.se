@@ -1,32 +1,66 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import BlogContent from './BlogContent';
 
 /**
  * A blogpost is created and has a Header, an Author, and Content (images and text), the content
- * is passed on to BlogContent class which handles formatting
+ * is processed by formatContent(). All info (except trip id and date) is fetched from the posts json file.
  */
 const propTypes = {
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired, //json and object instead of string?
-    author: PropTypes.string
+    tripid: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired
 };
-const defaultProps = {
-    author: '',
-}
 
 class BlogPost extends Component {
+    constructor(props) {
+        super(props);
+
+        const post = require(`../res/${this.props.tripid}/blog/json/${this.props.date}.json`);
+        this.state = {
+            post,
+        }
+        this.formatContent = this.formatContent.bind(this);
+    }
+
+    formatContent() {
+        const formattedContent = this.state.post.content.map((item, i) => {
+            if (item.paragraph) {
+                return <p key={i}>{item.paragraph}</p>;
+            } else if (item.image) {
+                const image = require(`../res/${this.props.tripid}/img/${this.props.date}/${item.image}`);
+                return(
+                    <img 
+                        src={image} 
+                        alt="" 
+                        key={i} 
+                    />
+                );
+            } else if (item.video) {
+                const video = require(`../res/${this.props.tripid}/img/${this.props.date}/${item.video}`);
+                return(
+                    <video controls key={i}>
+                        <source 
+                            src={video} 
+                            type="video/mp4" 
+                        />
+                    </video>
+                );
+            }
+            return '';
+        });
+        return formattedContent;
+    }
+
     render() {
         return (
             <div>
-                <h3>{this.props.title}</h3>
-                <BlogContent content={this.props.content} />
+                <h3>{this.state.post.info.title}</h3>
+                {this.formatContent()}
+                <p>Skrivet av {this.state.post.info.author}</p>
             </div>
         );
     }
 }
 
 BlogPost.propTypes = propTypes;
-BlogPost.defaultProps = defaultProps;
 
 export default BlogPost;

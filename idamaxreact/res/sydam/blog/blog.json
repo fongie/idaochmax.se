@@ -1,31 +1,33 @@
 {
-    "tripID": "sydam",
-    {
-        "date": "20160708"
-        {
-            "content": [
-                {
-                    "paragraph": "Idag har vi äntligen tagit oss ned för bergen, djupt in i Amazonasdjungeln!"
-                },
-                {
-                    "paragraph": "Vi anlände till Lago Agrio med flyg på morgonen. När vi steg av planet slogs vi av det nya tropiska klimatet, vattnet var tungt av fuktighet. Sedan åkte vi minibuss. Det visade sig vara ganska långt vi skulle åka, närmare två timmar bort."
-                },
-                {
-                    "paragraph": "Vi kom fram till 'båtterminalen', ett litet ställe vid en flod där folk väntade på att få åka sin kanot till sin lodge. Vi väntade ett tag, och steg sedan ned i en lång motorkanot med vår guide, Rodrigo, och en båtförare, Rojo."
-                },
-                {
-                    "image": "DSC_0102.JPG"
-                },
-                {
-                    "paragraph": "Sedan bar det av in i djungeln, i faktiskt ganska bra fart. En härlig känsla!"
-                },
-                {
-                    "video": "MOV_0105.mp4"
-                },
-                {
-                    "paragraph": "Vi hade trott att det skulle vara en kortare transportresa detta, men i stället guidade Rodrigo medan Rojo visade sig vara riktigt bra på att se djur. Efter ca 15 minuter var det tvärstopp - Rojo hade sett ett djur. Kan ni gissa vilket?"
-                }
+    "info": {
 
+        "tripID": "sydam",
+        "date": "20160708",
+        "title": "Djupt in i Amazonas djungel!",
+        "author": "Max"
+    },
+    "content": [
+        {
+            "paragraph": "Idag har vi äntligen tagit oss ned för bergen, djupt in i Amazonasdjungeln!"
+        },
+        {
+            "paragraph": "Vi anlände till Lago Agrio med flyg på morgonen. När vi steg av planet slogs vi av det nya tropiska klimatet, vattnet var tungt av fuktighet. Sedan åkte vi minibuss. Det visade sig vara ganska långt vi skulle åka, närmare två timmar bort."
+        },
+        {
+            "paragraph": "Vi kom fram till 'båtterminalen', ett litet ställe vid en flod där folk väntade på att få åka sin kanot till sin lodge. Vi väntade ett tag, och steg sedan ned i en lång motorkanot med vår guide, Rodrigo, och en båtförare, Rojo."
+        },
+        {
+            "image": "DSC_0102.JPG"
+        },
+        {
+            "paragraph": "Sedan bar det av in i djungeln, i faktiskt ganska bra fart. En härlig känsla!"
+        },
+        {
+            "video": "MOV_0105.mp4"
+        },
+        {
+            "paragraph": "Vi hade trott att det skulle vara en kortare transportresa detta, men i stället guidade Rodrigo medan Rojo visade sig vara riktigt bra på att se djur. Efter ca 15 minuter var det tvärstopp - Rojo hade sett ett djur. Kan ni gissa vilket?"
         }
-    }
+    ]
+
 }
