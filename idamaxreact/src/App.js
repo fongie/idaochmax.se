@@ -9,7 +9,7 @@ import { Route, Switch } from 'react-router-dom';
 class App extends Component {
     render() {
         return (
-            <div className="App">
+            <div className="container text-center" style={{width: '100%'}}>
                 <Header />
 
                 <Switch>
@@ -26,7 +26,7 @@ class App extends Component {
     }
 }
 
-
-//TODO MAKE BILDSIDOR!
+//TODO make bildsidor
+//TODO när man trycker på något i blogoverview så ska blogoverview thumbnails shiftas till vänster och blogpost komma fram
 
 export default App;

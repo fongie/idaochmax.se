@@ -1,12 +1,27 @@
 import React, { Component } from 'react';
+import { Image, PageHeader } from 'react-bootstrap';
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
+        const headerStyling = {
+            backgroundColor: '#e6faff',
+            margin: '0 0 30px 0',
+            padding: '5px 0 0 0',
+            width: '100%',
+            borderColor: '#00b8e6',
+        }
+        this.state = {
+            headerStyling,
+        }
+    }
     render() {
         return (
-            <div>
-                <h1>Ida & Max</h1>
-                <p />En reseblogg..
-            </div>
+            <PageHeader style={ this.state.headerStyling }>
+                Ida & Max
+                <br />
+                <small>En reseblogg..</small>
+            </PageHeader>
         );
     }
 }

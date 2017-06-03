@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Image } from 'react-bootstrap';
 
 /**
  * A blogpost is created and has a Header, an Author, and Content (images and text), the content
@@ -28,10 +29,11 @@ class BlogPost extends Component {
             } else if (item.image) {
                 const image = require(`../res/${this.props.tripid}/img/${this.props.date}/${item.image}`);
                 return(
-                    <img 
+                    <Image 
                         src={image} 
                         alt="" 
                         key={i} 
+                        responsive
                     />
                 );
             } else if (item.video) {

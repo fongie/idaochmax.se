@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import BlogOverview from './BlogOverview';
 import BlogPost from './BlogPost';
+import { Row, Col } from 'react-bootstrap';
 
 /**
  * The content to be displayed.
@@ -35,16 +36,23 @@ class Content extends Component {
     render() {
         return (
             <div>
-                <Switch>
-                    <Route 
-                        exact={true}
-                        path={`/${this.props.match.params.tripid}`}
-                        render={
-                            () => (<BlogOverview tripid={this.props.match.params.tripid} />)
-                        } 
-                    />
-                    {this.renderRoutes()}
-                </Switch>
+                <Row>
+                    <Col md={1}>
+                        <BlogOverview tripid="sydam" />
+                    </Col>
+                    <Col md={8} mdOffset={1}>
+                        <Switch>
+                            <Route 
+                                exact={true}
+                                path={`/${this.props.match.params.tripid}`}
+                                render={
+                                    () => (<BlogOverview tripid={this.props.match.params.tripid} />)
+                                } 
+                            />
+                            {this.renderRoutes()}
+                        </Switch>
+                    </Col>
+                </Row>
             </div>
         );
     }

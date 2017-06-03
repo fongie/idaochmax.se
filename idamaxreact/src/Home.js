@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Button, ButtonGroup } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 class Home extends Component {
     render() {
         return (
             <div>
-                <Link to="/sydam"><h2>Sydamerika</h2></Link>
-                <Link to="/indo"><h2>Indonesien</h2></Link>
-        </div>
-    );
-}
+                <ButtonGroup bsSize="lg">
+                    <LinkContainer to="/sydam"><Button>Sydamerika</Button></LinkContainer>
+                    <LinkContainer to="/indo"><Button>Indonesien</Button></LinkContainer>
+                </ButtonGroup>
+            </div>
+        );
+    }
 }
 
 export default Home;
