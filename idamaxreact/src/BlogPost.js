@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Image, Button } from 'react-bootstrap';
+import { Image, Button, Well } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 /**
@@ -9,15 +9,17 @@ import { LinkContainer } from 'react-router-bootstrap';
  */
 const propTypes = {
     tripid: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
     onClick: PropTypes.func,
+};
+
+const generalStyling = {
+
 };
 
 class BlogPost extends Component {
     constructor(props) {
         super(props);
-
-        const post = require(`../res/${this.props.tripid}/blog/json/${this.props.date}.json`);
+        const post = require(`../res/${this.props.tripid}/blog/json/${this.props.match.params.date}.json`);
         this.state = {
             post,
         }
@@ -29,7 +31,7 @@ class BlogPost extends Component {
             if (item.paragraph) {
                 return <p key={i}>{item.paragraph}</p>;
             } else if (item.image) {
-                const image = require(`../res/${this.props.tripid}/img/${this.props.date}/${item.image}`);
+                const image = require(`../res/${this.props.tripid}/img/${this.props.match.params.date}/${item.image}`);
                 return(
                     <Image 
                         src={image} 
@@ -39,7 +41,7 @@ class BlogPost extends Component {
                     />
                 );
             } else if (item.video) {
-                const video = require(`../res/${this.props.tripid}/img/${this.props.date}/${item.video}`);
+                const video = require(`../res/${this.props.tripid}/img/${this.props.match.params.date}/${item.video}`);
                 return(
                     <video controls key={i}>
                         <source 
@@ -55,14 +57,17 @@ class BlogPost extends Component {
     }
 
     render() {
+        console.log(this.props);
         return (
-            <div>
-                <h3>{this.state.post.info.title}</h3>
+            <div style={generalStyling}>
+                <Well>
                 <LinkContainer to={`/${this.props.tripid}`}>
                     <Button onClick={this.props.onClick}>Tillbaka</Button>
                 </LinkContainer>
+                <h3>{this.state.post.info.title}</h3>
                 {this.formatContent()}
                 <p>Skrivet av {this.state.post.info.author}</p>
+            </Well>
             </div>
         );
     }

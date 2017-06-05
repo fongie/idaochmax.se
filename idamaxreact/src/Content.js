@@ -5,6 +5,12 @@ import BlogOverview from './BlogOverview';
 import BlogPost from './BlogPost';
 import { Row, Col } from 'react-bootstrap';
 
+//TODO: issue: when you f5 reload on a blog post, the left nav bar is hidden, it should show
+//
+//TODO: issue: left nav bar icons not working cause its not being passed props.
+// make layout change with state instead, so that the same blogoverview
+// comp move from center to side, instead of rendering a new one
+
 /**
  * The content to be displayed.
  * Either a Blog overview with thumbnails, or a blog post
@@ -19,45 +25,29 @@ class Content extends Component {
         super(props);
 
         this.state = {
-            showLeftPanel: false,
+            showingLeftPanel: false,
         };
-        this.renderRoutes = this.renderRoutes.bind(this);
-        this.toggleLeftPanel = this.toggleLeftPanel.bind(this);
+        this.showLeftPanel = this.showLeftPanel.bind(this);
+        this.hideLeftPanel = this.hideLeftPanel.bind(this);
     }
 
-    toggleLeftPanel  = () => {
-        const currentShowPanel = this.state.showLeftPanel;
+    showLeftPanel  = () => {
         this.setState(
-            {showLeftPanel : !currentShowPanel } )
+            {showingLeftPanel : true } )
+    }
+    hideLeftPanel  = () => {
+        this.setState(
+            {showingLeftPanel : false } )
     }
 
-    renderRoutes() {
-        const tripinfo = require(`../res/${this.props.match.params.tripid}/tripinfo.json`);
-        const routes = tripinfo.dates.map((date, i) => (
-            <Route
-                key={i}
-                path={`/${this.props.match.params.tripid}/${date}`}
-                render={
-                    () => (
-                        <BlogPost 
-                            tripid={this.props.match.params.tripid} 
-                            date={date} 
-                            onClick={this.toggleLeftPanel}
-                        />)
-                }
-            />
-        )
-        );
-        return routes;
-    }
     render() {
         return (
             <div>
                 <Row>
                     <Col md={2}>
-                        { this.state.showLeftPanel && <BlogOverview tripid={this.props.match.params.tripid} /> }
+                        { this.state.showingLeftPanel && <BlogOverview tripid={this.props.match.params.tripid} /> }
                     </Col>
-                    <Col md={8}>
+                    <Col md={6} mdOffset={1}>
                         <Switch>
                             <Route 
                                 exact={true}
@@ -66,15 +56,27 @@ class Content extends Component {
                                     () => ( 
                                         <BlogOverview 
                                             tripid={this.props.match.params.tripid} 
-                                            onClick={ this.toggleLeftPanel }
-                                        /> )
+                                            onClick={ this.showLeftPanel }
+                                        />)
                                 } 
                             />
-                            {this.renderRoutes()}
-                        </Switch>
-                    </Col>
-                </Row>
-            </div>
+                            <Route
+                                location={this.props.location}
+                                key={this.props.location.key}
+                                path={`/${this.props.match.params.tripid}/:date`}
+                                render={
+                                    (props) => (
+                                        <BlogPost 
+                                            {...props}
+                                            onClick={this.hideLeftPanel}
+                                            tripid={this.props.match.params.tripid}
+                                        />
+                                    )}
+                                />
+                            </Switch>
+                        </Col>
+                    </Row>
+                </div>
         );
     }
 }
