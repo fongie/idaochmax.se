@@ -6,6 +6,14 @@
 
 .fade-enter.fade-enter-active {
     opacity: 1;
-    transition: opacity 3000ms ease-in;
+    transition: opacity 700ms ease-out;
 }
 
+.fade-appear {
+    opacity: 0;
+}
+
+.fade-appear-active {
+    opacity: 1;
+    transition: opacity 700ms ease-out;
+}

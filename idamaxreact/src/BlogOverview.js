@@ -37,7 +37,6 @@ class BlogOverview extends Component {
                 <Link 
                     key={i}
                     to={`/${this.props.tripid}/${date}`}
-                    onClick={this.props.onClick}
                 >
                 <li style={{maxWidth: '600px', padding: '20px'}}>
                     <Image 

@@ -9,10 +9,11 @@ import { LinkContainer } from 'react-router-bootstrap';
  */
 const propTypes = {
     tripid: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
+    onMount: PropTypes.func,
 };
 
 const generalStyling = {
+    fontSize: '16px',
 
 };
 
@@ -24,6 +25,10 @@ class BlogPost extends Component {
             post,
         }
         this.formatContent = this.formatContent.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.onMount();
     }
 
     formatContent() {
@@ -43,26 +48,26 @@ class BlogPost extends Component {
             } else if (item.video) {
                 const video = require(`../res/${this.props.tripid}/img/${this.props.match.params.date}/${item.video}`);
                 return(
-                    <video controls key={i}>
+                    <div style={{margin:'auto', padding: '2px', marginTop: '10px', marginBottom: '10px'}}>
+                    <video style={{width:'100%'}} controls key={i}>
                         <source 
                             src={video} 
                             type="video/mp4" 
                         />
                     </video>
+                </div>
                 );
             }
             return '';
         });
         return formattedContent;
     }
-
     render() {
-        console.log(this.props);
         return (
             <div style={generalStyling}>
                 <Well>
                 <LinkContainer to={`/${this.props.tripid}`}>
-                    <Button onClick={this.props.onClick}>Tillbaka</Button>
+                    <Button>Tillbaka</Button>
                 </LinkContainer>
                 <h3>{this.state.post.info.title}</h3>
                 {this.formatContent()}
