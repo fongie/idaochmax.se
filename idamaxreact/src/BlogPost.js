@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Image } from 'react-bootstrap';
+import { Image, Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 /**
  * A blogpost is created and has a Header, an Author, and Content (images and text), the content
@@ -8,7 +9,8 @@ import { Image } from 'react-bootstrap';
  */
 const propTypes = {
     tripid: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired
+    date: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
 };
 
 class BlogPost extends Component {
@@ -56,6 +58,9 @@ class BlogPost extends Component {
         return (
             <div>
                 <h3>{this.state.post.info.title}</h3>
+                <LinkContainer to={`/${this.props.tripid}`}>
+                    <Button onClick={this.props.onClick}>Tillbaka</Button>
+                </LinkContainer>
                 {this.formatContent()}
                 <p>Skrivet av {this.state.post.info.author}</p>
             </div>

@@ -7,8 +7,12 @@ class Home extends Component {
         return (
             <div>
                 <ButtonGroup bsSize="lg">
-                    <LinkContainer to="/sydam"><Button>Sydamerika</Button></LinkContainer>
-                    <LinkContainer to="/indo"><Button>Indonesien</Button></LinkContainer>
+                    <LinkContainer to="/sydam">
+                        <Button>Sydamerika</Button>
+                    </LinkContainer>
+                    <LinkContainer to="/indo">
+                        <Button>Indonesien</Button>
+                    </LinkContainer>
                 </ButtonGroup>
             </div>
         );

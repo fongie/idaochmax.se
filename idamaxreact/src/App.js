@@ -12,13 +12,13 @@ class App extends Component {
             <div className="container text-center" style={{width: '100%'}}>
                 <Header />
 
-                <Switch>
-                    <Route exact={true} path="/" component={Home} />
-                    <Route 
-                        path="/:tripid" 
-                        component={Content}
-                    />
-                </Switch>
+                    <Switch>
+                        <Route exact={true} path="/" component={Home} />
+                        <Route 
+                            path="/:tripid" 
+                            component={Content}
+                        />
+                    </Switch>
 
                 <Footer />
             </div>

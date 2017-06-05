@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, PageHeader } from 'react-bootstrap';
+import { PageHeader } from 'react-bootstrap';
 
 class Header extends Component {
     constructor(props) {

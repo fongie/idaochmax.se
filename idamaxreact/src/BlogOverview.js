@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { 
     Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Grid, Row, Col, Image } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 
 /**
  * BlogOverview shows thumbnails (that link to the posts) of all blogposts in this trip ID
  */
 const propTypes = {
-    tripid: PropTypes.string.isRequired
+    tripid: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
 }
 class BlogOverview extends Component {
     constructor(props) {
         super(props);
         this.renderThumbnails = this.renderThumbnails.bind(this);
-        this.getEveryOtherObject = this.getEveryOtherObject.bind(this);
 
         const tripInfo = require(`../res/${this.props.tripid}/tripinfo.json`);
         const blogOverviewStyling = {
@@ -29,18 +29,6 @@ class BlogOverview extends Component {
             blogOverviewStyling,
         }
     }
-
-    //first item should be 0 or 1 for even or odd items
-    getEveryOtherObject(array, firstitem) {
-        const newArray = array.filter((item, i) => {
-            if (i % 2 === firstitem) {
-                return true;
-            }
-            return false;
-        });
-        return newArray;
-    }
-
     renderThumbnails() {
         const thumbnails = this.state.tripInfo.dates.map((date, i) => {
             const post = require(`../res/${this.props.tripid}/blog/json/${date}.json`);
@@ -49,8 +37,9 @@ class BlogOverview extends Component {
                 <Link 
                     key={i}
                     to={`/${this.props.tripid}/${date}`}
+                    onClick={this.props.onClick}
                 >
-                <li style={{maxWidth: '600', padding: '20'}}>
+                <li style={{maxWidth: '600px', padding: '20px'}}>
                     <Image 
                         style={{width: '100%'}}
                         src={image} 
@@ -63,36 +52,8 @@ class BlogOverview extends Component {
                 </Link>
             );
         });
-        return thumbnails;
+        return thumbnails.reverse();
     }
-
-        /*
-        return(
-            <Row>
-                <Col xs={12} md={6}>
-                    <ul style={{listStyle: 'none'}}>
-                    {this.getEveryOtherObject(thumbnails, 0)}
-                </ul>
-                </Col>
-                <Col xs={12} md={6}>
-                    <ul style={{listStyle: 'none'}}>
-                    {this.getEveryOtherObject(thumbnails, 1)}
-                </ul>
-                </Col>
-            </Row>
-        );
-    }
-
-    render() {
-        return (
-            <div style={ this.state.blogOverviewStyling }>
-                <Grid>
-                    {this.renderThumbnails()}
-                </Grid>
-            </div>
-        );
-    }
-        */
     render() {
         return (
             <div>

@@ -17,8 +17,20 @@ const propTypes = {
 class Content extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            showLeftPanel: false,
+        };
         this.renderRoutes = this.renderRoutes.bind(this);
+        this.toggleLeftPanel = this.toggleLeftPanel.bind(this);
     }
+
+    toggleLeftPanel  = () => {
+        const currentShowPanel = this.state.showLeftPanel;
+        this.setState(
+            {showLeftPanel : !currentShowPanel } )
+    }
+
     renderRoutes() {
         const tripinfo = require(`../res/${this.props.match.params.tripid}/tripinfo.json`);
         const routes = tripinfo.dates.map((date, i) => (
@@ -26,7 +38,12 @@ class Content extends Component {
                 key={i}
                 path={`/${this.props.match.params.tripid}/${date}`}
                 render={
-                    () => (<BlogPost tripid={this.props.match.params.tripid} date={date} />)
+                    () => (
+                        <BlogPost 
+                            tripid={this.props.match.params.tripid} 
+                            date={date} 
+                            onClick={this.toggleLeftPanel}
+                        />)
                 }
             />
         )
@@ -37,16 +54,20 @@ class Content extends Component {
         return (
             <div>
                 <Row>
-                    <Col md={1}>
-                        <BlogOverview tripid="sydam" />
+                    <Col md={2}>
+                        { this.state.showLeftPanel && <BlogOverview tripid={this.props.match.params.tripid} /> }
                     </Col>
-                    <Col md={8} mdOffset={1}>
+                    <Col md={8}>
                         <Switch>
                             <Route 
                                 exact={true}
                                 path={`/${this.props.match.params.tripid}`}
                                 render={
-                                    () => (<BlogOverview tripid={this.props.match.params.tripid} />)
+                                    () => ( 
+                                        <BlogOverview 
+                                            tripid={this.props.match.params.tripid} 
+                                            onClick={ this.toggleLeftPanel }
+                                        /> )
                                 } 
                             />
                             {this.renderRoutes()}
