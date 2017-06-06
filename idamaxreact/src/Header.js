@@ -10,6 +10,7 @@ class Header extends Component {
             padding: '5px 0 0 0',
             width: '100%',
             borderColor: '#00b8e6',
+            height: '250px',
         }
         this.state = {
             headerStyling,
@@ -17,10 +18,12 @@ class Header extends Component {
     }
     render() {
         return (
-            <PageHeader style={ this.state.headerStyling }>
+            <PageHeader style={{ ...this.state.headerStyling }}>
+                <div style={{marginTop:'60px'}}>
                 Ida & Max
                 <br />
                 <small>En reseblogg..</small>
+            </div>
             </PageHeader>
         );
     }

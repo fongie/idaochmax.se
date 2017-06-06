@@ -11,6 +11,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 const propTypes = {
     tripid: PropTypes.string.isRequired,
     onMount: PropTypes.func,
+    match: PropTypes.object.isRequired,
 };
 
 const generalStyling = {
@@ -49,7 +50,11 @@ class BlogPost extends Component {
                 );
             } else if (item.video) {
                 const video = require(`../res/${this.props.tripid}/img/${this.props.match.params.date}/${item.video}`);
-                return <Video src={video} key={i} />;
+                return <Video 
+                    src={video} 
+                    key={i} 
+                    style={{margin:'auto', padding: '1em', marginTop: '10px', marginBottom: '10px'}}
+                    />;
             }
             return '';
         });
