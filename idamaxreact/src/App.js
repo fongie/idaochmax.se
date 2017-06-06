@@ -39,7 +39,7 @@ const App = () => (
 )
 
 
-//TODO make bildsidor
+//TODO fixa sticky footer, eller åtminstone så den inte går in i bilderna
 //TODO när man trycker på något i blogoverview så ska blogoverview thumbnails shiftas till vänster och blogpost komma fram
 
 export default App;

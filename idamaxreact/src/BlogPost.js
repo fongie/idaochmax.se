@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import Video from './Video';
 import { Image, Button, Well, Row, Col } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
@@ -48,16 +49,7 @@ class BlogPost extends Component {
                 );
             } else if (item.video) {
                 const video = require(`../res/${this.props.tripid}/img/${this.props.match.params.date}/${item.video}`);
-                return(
-                    <div key={i} style={{margin:'auto', padding: '1em', marginTop: '10px', marginBottom: '10px'}}>
-                    <video style={{width:'100%'}} controls key={i}>
-                        <source 
-                            src={video} 
-                            type="video/mp4" 
-                        />
-                    </video>
-                </div>
-                );
+                return <Video src={video} key={i} />;
             }
             return '';
         });
@@ -72,11 +64,21 @@ class BlogPost extends Component {
                             <LinkContainer to={`/${this.props.tripid}`}>
                                 <Button>Tillbaka</Button>
                             </LinkContainer>
+
+                            <LinkContainer to={`${this.props.match.url}/bilder`}>
+                                <Button>Bilder</Button>
+                            </LinkContainer>
+
                             <h3>{this.state.post.info.title}</h3>
                             {this.formatContent()}
                             <p>Skrivet av {this.state.post.info.author}</p>
+
                             <LinkContainer to={`/${this.props.tripid}`}>
                                 <Button>Tillbaka</Button>
+                            </LinkContainer>
+
+                            <LinkContainer to={`${this.props.match.url}/bilder`}>
+                                <Button>Bilder</Button>
                             </LinkContainer>
                         </Well>
                     </Col>

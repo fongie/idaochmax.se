@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import BlogOverview from './BlogOverview';
 import BlogPost from './BlogPost';
+import BildSida from './BildSida';
 import { Row, Col } from 'react-bootstrap';
 
 /**
@@ -50,20 +51,33 @@ class Content extends Component {
                             <Route
                                 location={this.props.location}
                                 key={this.props.location.key}
-                                path={`/${this.props.match.params.tripid}/:date`}
+                                path={`/${this.props.match.params.tripid}/:date/bilder`}
                                 render={
                                     (props) => (
-                                        <BlogPost 
+                                        <BildSida
                                             {...props}
                                             tripid={this.props.match.params.tripid}
                                             onMount={this.showLeftPanel}
-                                        />
+                                        /> 
                                     )}
                                 />
-                            </Switch>
-                        </Col>
-                    </Row>
-                </div>
+                                <Route
+                                    location={this.props.location}
+                                    key={this.props.location.key}
+                                    path={`/${this.props.match.params.tripid}/:date`}
+                                    render={
+                                        (props) => (
+                                            <BlogPost 
+                                                {...props}
+                                                tripid={this.props.match.params.tripid}
+                                                onMount={this.showLeftPanel}
+                                            />
+                                        )}
+                                    />
+                                </Switch>
+                            </Col>
+                        </Row>
+                    </div>
         );
     }
 }
