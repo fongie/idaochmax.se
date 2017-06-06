@@ -34,11 +34,12 @@ class BlogPost extends Component {
     formatContent() {
         const formattedContent = this.state.post.content.map((item, i) => {
             if (item.paragraph) {
-                return <p key={i}>{item.paragraph}</p>;
+                return <p key={i} style={{marginTop: '20px', marginBottom: '20px'}}>{item.paragraph}</p>;
             } else if (item.image) {
                 const image = require(`../res/${this.props.tripid}/img/${this.props.match.params.date}/${item.image}`);
                 return(
                     <Image 
+                        style={{marginLeft: 'auto', marginRight: 'auto'}}
                         src={image} 
                         alt="" 
                         key={i} 
@@ -48,7 +49,7 @@ class BlogPost extends Component {
             } else if (item.video) {
                 const video = require(`../res/${this.props.tripid}/img/${this.props.match.params.date}/${item.video}`);
                 return(
-                    <div style={{margin:'auto', padding: '1em', marginTop: '10px', marginBottom: '10px'}}>
+                    <div key={i} style={{margin:'auto', padding: '1em', marginTop: '10px', marginBottom: '10px'}}>
                     <video style={{width:'100%'}} controls key={i}>
                         <source 
                             src={video} 

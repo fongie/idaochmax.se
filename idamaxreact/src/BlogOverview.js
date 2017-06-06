@@ -53,7 +53,7 @@ class BlogOverview extends Component {
                     key={i}
                     to={`/${this.props.tripid}/${date}`}
                 >
-                    <div style={{width: '500px', height:'400px', padding: '20px'}}>
+                    <div style={{width: '500px', height:'300px', padding: '20px'}}>
                         <li>
                             <div style={{...this.state.thumbnailStyling, backgroundImage: `url(${image})`}}>
                             </div>
@@ -66,7 +66,7 @@ class BlogOverview extends Component {
         return thumbnails.reverse();
     }
 
-renderNavBar() {
+    renderNavBar() {
         const thumbnails = this.state.tripInfo.dates.map((date, i) => {
             const post = require(`../res/${this.props.tripid}/blog/json/${date}.json`);
             const image = require(`../res/${this.props.tripid}/img/${date}/${post.info.thumbnail}`);
@@ -75,23 +75,22 @@ renderNavBar() {
                     key={i}
                     to={`/${this.props.tripid}/${date}`}
                 >
-                <li style={{maxWidth: '600px', padding: '20px'}}>
-                    <Image 
-                        style={{width: '100%'}}
-                        src={image} 
-                        alt="" 
-                        key={i} 
-                        circle
-                    />
+                    <li style={{padding: '5px'}}>
+                        <Image 
+                            style={{width: '100%'}}
+                            src={image} 
+                            alt="" 
+                            key={i} 
+                            rounded
+
+                        />
                         <p>{post.info.title}</p>
-            </li>
+                    </li>
                 </Link>
             );
         });
         return thumbnails.reverse();
-}
-
-
+    }
     render() {
         return (
             <div>
