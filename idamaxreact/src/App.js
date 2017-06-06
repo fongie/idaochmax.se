@@ -38,6 +38,7 @@ const App = () => (
     </Router>
 )
 
+
 //TODO make bildsidor
 //TODO när man trycker på något i blogoverview så ska blogoverview thumbnails shiftas till vänster och blogpost komma fram
 

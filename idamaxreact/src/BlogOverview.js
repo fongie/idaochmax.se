@@ -38,16 +38,20 @@ class BlogOverview extends Component {
                     key={i}
                     to={`/${this.props.tripid}/${date}`}
                 >
-                <li style={{maxWidth: '600px', padding: '20px'}}>
+                    <div style={{width: '500px', height:'400px', padding: '20px'}}>
+                <li>
+                    <div style={{height: '300px'}}>
                     <Image 
-                        style={{width: '100%'}}
+                        style={{maxWidth: '100%', maxHeight: '300px'}}
                         src={image} 
                         alt="" 
                         key={i} 
-                        circle
+                        rounded
                     />
-                        <p>{post.info.title}</p>
+                    </div>
+                        <h4>{post.info.title}</h4>
             </li>
+        </div>
                 </Link>
             );
         });

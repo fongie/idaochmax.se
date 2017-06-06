@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Image, Button, Well } from 'react-bootstrap';
+import { Image, Button, Well, Row, Col } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 /**
@@ -14,7 +14,7 @@ const propTypes = {
 
 const generalStyling = {
     fontSize: '16px',
-
+    padding: '1em',
 };
 
 class BlogPost extends Component {
@@ -48,7 +48,7 @@ class BlogPost extends Component {
             } else if (item.video) {
                 const video = require(`../res/${this.props.tripid}/img/${this.props.match.params.date}/${item.video}`);
                 return(
-                    <div style={{margin:'auto', padding: '2px', marginTop: '10px', marginBottom: '10px'}}>
+                    <div style={{margin:'auto', padding: '1em', marginTop: '10px', marginBottom: '10px'}}>
                     <video style={{width:'100%'}} controls key={i}>
                         <source 
                             src={video} 
@@ -65,14 +65,21 @@ class BlogPost extends Component {
     render() {
         return (
             <div style={generalStyling}>
-                <Well>
-                <LinkContainer to={`/${this.props.tripid}`}>
-                    <Button>Tillbaka</Button>
-                </LinkContainer>
-                <h3>{this.state.post.info.title}</h3>
-                {this.formatContent()}
-                <p>Skrivet av {this.state.post.info.author}</p>
-            </Well>
+                <Row>
+                    <Col xs={12} md={10} mdOffset={1} lg={8} lgOffset={2}>
+                        <Well>
+                            <LinkContainer to={`/${this.props.tripid}`}>
+                                <Button>Tillbaka</Button>
+                            </LinkContainer>
+                            <h3>{this.state.post.info.title}</h3>
+                            {this.formatContent()}
+                            <p>Skrivet av {this.state.post.info.author}</p>
+                            <LinkContainer to={`/${this.props.tripid}`}>
+                                <Button>Tillbaka</Button>
+                            </LinkContainer>
+                        </Well>
+                    </Col>
+                </Row>
             </div>
         );
     }

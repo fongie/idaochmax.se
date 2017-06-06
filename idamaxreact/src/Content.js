@@ -32,10 +32,10 @@ class Content extends Component {
         return (
             <div>
                 <Row>
-                    <Col md={2}>
+                    <Col xs={2}>
                         { this.state.showingLeftPanel && <BlogOverview tripid={this.props.match.params.tripid} /> }
                     </Col>
-                    <Col md={6} mdOffset={1}>
+                    <Col xs={8}>
                         <Switch>
                             <Route 
                                 exact={true}
