@@ -33,7 +33,7 @@ class Content extends Component {
             <div>
                 <Row>
                     <Col xs={2}>
-                        { this.state.showingLeftPanel && <BlogOverview tripid={this.props.match.params.tripid} /> }
+                        { this.state.showingLeftPanel && <BlogOverview isNavBar={true} tripid={this.props.match.params.tripid} /> }
                     </Col>
                     <Col xs={8}>
                         <Switch>
