@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Video from './Video';
+import { Link } from 'react-router';
+import { LinkContainer } from 'react-router-bootstrap';
 
 //note needs a match object passed on from bildsida that has date params in it..
 class ImageGallery extends Component {
@@ -45,11 +47,13 @@ class ImageGallery extends Component {
             }
             const image = require(`../res/${this.props.tripid}/img/${this.state.date}/${item}`);
             return(
-                <div key={i}>
+                <div key={i} style={{cursor: 'pointer'}}>
+                    <LinkContainer to={`/${this.props.tripid}/${this.state.date}/bilder/${item}`}>
                     <li>
                         <div style={{...this.state.thumbnailStyling, backgroundImage: `url(${image})`}}>
                         </div>
                     </li>
+                </LinkContainer>
                 </div>
             );
         });
@@ -63,7 +67,7 @@ class ImageGallery extends Component {
             const video = require(`../res/${this.props.tripid}/img/${this.state.date}/${item}`);
             return(
                 <div key={i}>
-                    <li>
+                    <li style={{cursor: 'pointer'}}>
                         <div style={{...this.state.thumbnailStyling}}>
                             <Video src={video} />
                         </div>
@@ -75,10 +79,12 @@ class ImageGallery extends Component {
     }
     render() {
         return (
-            <ul style={ this.state.generalStyling }>
-                { this.renderImages() }
-                { this.renderVideos() }
-            </ul>
+            <div>
+                <ul style={ this.state.generalStyling }>
+                    { this.renderImages() }
+                    { this.renderVideos() }
+                </ul>
+            </div>
         );
     }
 }
