@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Video from './Video';
-import { Link } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
 
 //note needs a match object passed on from bildsida that has date params in it..

@@ -15,7 +15,7 @@ const propTypes = {
 };
 
 const generalStyling = {
-    fontSize: '16px',
+    fontSize: '1.5em',
     padding: '1em',
 };
 

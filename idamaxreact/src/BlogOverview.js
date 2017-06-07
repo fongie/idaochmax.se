@@ -81,7 +81,7 @@ class BlogOverview extends Component {
                             src={image} 
                             alt="" 
                             key={i} 
-                            rounded
+                            circle
 
                         />
                         <p>{post.info.title}</p>

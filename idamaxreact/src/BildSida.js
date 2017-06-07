@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { Col, Button } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
 import { Switch, Route } from 'react-router';
 import ImageGallery from './ImageGallery';
 import ImageFromGallery from './ImageFromGallery';
 
 //TODO make setstate to show either gallery or the image clicked on
 class BildSida extends Component {
-    constructor(props) {
-        super(props);
-    }
     componentDidMount() {
         this.props.onMount();
     }

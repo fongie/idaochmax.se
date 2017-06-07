@@ -20,7 +20,7 @@ class Header extends Component {
         return (
             <PageHeader style={{ ...this.state.headerStyling }}>
                 <div style={{marginTop:'60px'}}>
-                Ida & Max
+                    <p style={{fontSize: '2em'}}>Ida & Max</p>
                 <br />
                 <small>En reseblogg..</small>
             </div>
