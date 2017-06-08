@@ -33,10 +33,10 @@ class Content extends Component {
         return (
             <div>
                 <Row>
-                    <Col xs={2}>
+                    <Col xsHidden smHidden md={2}>
                         { this.state.showingLeftPanel && <BlogOverview isNavBar={true} tripid={this.props.match.params.tripid} /> }
                     </Col>
-                    <Col xs={8}>
+                    <Col xs={12} md={8}>
                         <Switch>
                             <Route 
                                 exact={true}

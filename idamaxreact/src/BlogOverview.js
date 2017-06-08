@@ -57,7 +57,7 @@ class BlogOverview extends Component {
                         <li>
                             <div style={{...this.state.thumbnailStyling, backgroundImage: `url(${image})`}}>
                             </div>
-                            <h4>{post.info.title}</h4>
+                            <h4 style={{color: '#666666', fontWeight: 'bold'}}>{post.info.title}</h4>
                         </li>
                     </div>
                 </Link>
@@ -84,7 +84,7 @@ class BlogOverview extends Component {
                             circle
 
                         />
-                        <p>{post.info.title}</p>
+                        <p style={{color: '#666666', fontWeight: 'bold'}}>{post.info.title}</p>
                     </li>
                 </Link>
             );

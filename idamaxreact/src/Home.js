@@ -48,10 +48,10 @@ class Home extends Component {
                 const tripinfo = require(`../res/${item.id}/tripinfo.json`);
                 const bgImage = require(`../res/${item.id}/img/${tripinfo.bgimage}`);
                 return (
-                    <div key={i} style={{width: '700px', height:'500px', padding: '20px'}}>
+                    <div key={i} style={{width: '700px', height:'500px', marginBottom: '70px', padding: '20px'}}>
                         <LinkContainer to={`/${item.id}`}>
                         <li>
-                            <h3>{item.name}</h3>
+                            <h3 style={{fontWeight: 'bold'}}>{item.name}</h3>
                             <div style={{...this.state.thumbnailStyling, backgroundImage: `url(${bgImage})`}}>
                             </div>
                         </li>

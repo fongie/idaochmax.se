@@ -10,7 +10,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 const App = () => (
     <Router>
         <Route render={({location}) => (
-            <div className="container text-center" style={{width: '100%'}}>
+            <div className="container text-center" style={{fontFamily: 'Poiret One', width: '100%'}}>
                 <Link to="/">
                     <Header />
                 </Link>

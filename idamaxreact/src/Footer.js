@@ -4,7 +4,7 @@ import CopyrightLink from './CopyrightLink';
 class Footer extends Component {
     render() {
         return (
-            <div style={{marginTop: '30px'}}>
+            <div style={{fontWeight: 'bold', fontSize: '1.2em',  marginTop: '30px'}}>
                 <CopyrightLink />
             </div>
         );

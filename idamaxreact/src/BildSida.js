@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Button } from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
 import { Switch, Route } from 'react-router';
 import ImageGallery from './ImageGallery';
 import ImageFromGallery from './ImageFromGallery';
@@ -14,8 +14,7 @@ class BildSida extends Component {
     render() {
         return (
             <div>
-                <Col sm={12}>
-                    <Button onClick={this.props.history.goBack}>Tillbaka</Button>
+                    <Button style={{fontFamily:'Life Savers'}} onClick={this.props.history.goBack}>Tillbaka</Button>
                     <LinkContainer to={`/${this.props.tripid}/${this.props.match.params.date}/bilder/bildspel`}>
                         <Button>Bildspel</Button>
                     </LinkContainer>
@@ -43,23 +42,22 @@ class BildSida extends Component {
                                             {...props}
                                         />
                                     )}
-                            >
-                            </Route>
-                            <Route
-                                path={`/${this.props.tripid}/${this.props.match.params.date}/bilder/:bild`}
-                                render={
-                                    (props) => (
-                                        <ImageFromGallery 
-                                            tripid={this.props.tripid} 
-                                            date={this.props.match.params.date} 
-                                            {...props} 
-                                        />
-                                    )}
                                 >
                                 </Route>
-                            </Switch>
-                        </Col>
-                    </div>
+                                <Route
+                                    path={`/${this.props.tripid}/${this.props.match.params.date}/bilder/:bild`}
+                                    render={
+                                        (props) => (
+                                            <ImageFromGallery 
+                                                tripid={this.props.tripid} 
+                                                date={this.props.match.params.date} 
+                                                {...props} 
+                                            />
+                                        )}
+                                    >
+                                    </Route>
+                                </Switch>
+                        </div>
         );
     }
 }

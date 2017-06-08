@@ -15,6 +15,7 @@ const propTypes = {
 };
 
 const generalStyling = {
+    fontFamily: 'Life Savers',
     fontSize: '1.5em',
     padding: '1em',
 };
@@ -28,11 +29,9 @@ class BlogPost extends Component {
         }
         this.formatContent = this.formatContent.bind(this);
     }
-
     componentDidMount() {
         this.props.onMount();
     }
-
     formatContent() {
         const formattedContent = this.state.post.content.map((item, i) => {
             if (item.paragraph) {
@@ -54,7 +53,7 @@ class BlogPost extends Component {
                     src={video} 
                     key={i} 
                     style={{margin:'auto', padding: '1em', marginTop: '10px', marginBottom: '10px'}}
-                    />;
+                />;
             }
             return '';
         });
@@ -64,24 +63,18 @@ class BlogPost extends Component {
         return (
             <div style={generalStyling}>
                 <Row>
-                    <Col xs={12} md={10} mdOffset={1} lg={8} lgOffset={2}>
+                    <Col xs={12} lg={8} lgOffset={2}>
                         <Well>
-                            <LinkContainer to={`/${this.props.tripid}`}>
-                                <Button>Tillbaka</Button>
-                            </LinkContainer>
-
+                            <Button style={{fontFamily:'Life Savers'}} onClick={this.props.history.goBack}>Tillbaka</Button>
                             <LinkContainer to={`${this.props.match.url}/bilder`}>
                                 <Button>Bilder</Button>
                             </LinkContainer>
 
-                            <h3>{this.state.post.info.title}</h3>
+                            <h3 style={{fontWeight: 'bold'}}>{this.state.post.info.title}</h3>
                             {this.formatContent()}
                             <p>Skrivet av {this.state.post.info.author}</p>
 
-                            <LinkContainer to={`/${this.props.tripid}`}>
-                                <Button>Tillbaka</Button>
-                            </LinkContainer>
-
+                            <Button onClick={this.props.history.goBack}>Tillbaka</Button>
                             <LinkContainer to={`${this.props.match.url}/bilder`}>
                                 <Button>Bilder</Button>
                             </LinkContainer>
