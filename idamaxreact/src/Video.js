@@ -1,18 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Video extends Component {
-    render() {
+const propTypes = {
+    src: PropTypes.string.isRequired,
+};
+
+const Video = (props) => {
         return (
             <div>
                 <video style={{width:'100%'}} controls >
                     <source 
-                        src={this.props.src} 
+                        src={props.src} 
                         type="video/mp4" 
                     />
                 </video>
             </div>
         );
     }
-}
 
+Video.propTypes = propTypes;
 export default Video;

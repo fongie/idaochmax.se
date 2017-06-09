@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import BlogOverview from './BlogOverview';
 import BlogPost from './BlogPost';
-import BildSida from './BildSida';
+import ImagesPage from './ImagesPage';
 import { Row, Col } from 'react-bootstrap';
 
 /**
@@ -53,7 +53,7 @@ class Content extends Component {
                                 path={`/${this.props.match.params.tripid}/:date/bilder`}
                                 render={
                                     (props) => (
-                                        <BildSida
+                                        <ImagesPage
                                             {...props}
                                             tripid={this.props.match.params.tripid}
                                             onMount={this.showLeftPanel}

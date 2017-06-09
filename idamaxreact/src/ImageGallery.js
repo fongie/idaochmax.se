@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Video from './Video';
 import { LinkContainer } from 'react-router-bootstrap';
 
-//note needs a match object passed on from bildsida that has date params in it..
+//note needs a match object passed on from bildsida router that has date params in it..
+const propTypes = {
+    match: PropTypes.object.isRequired,
+    tripid: PropTypes.string.isRequired,
+};
+
 //animation for gallery images scaling on hover is in app.css
 class ImageGallery extends Component {
     constructor(props) {
@@ -89,4 +95,5 @@ class ImageGallery extends Component {
     }
 }
 
+ImageGallery.propTypes = propTypes;
 export default ImageGallery;

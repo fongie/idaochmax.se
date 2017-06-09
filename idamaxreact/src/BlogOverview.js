@@ -50,19 +50,19 @@ class BlogOverview extends Component {
             const image = require(`../res/${this.props.tripid}/img/${date}/${post.info.thumbnail}`);
             return(
                 <div className="overview-items-pulse">
-                <Link 
-                    key={i}
-                    to={`/${this.props.tripid}/${date}`}
-                >
-                    <div style={{width: '500px', height:'300px', padding: '20px'}}>
-                        <li>
-                            <div style={{...this.state.thumbnailStyling, backgroundImage: `url(${image})`}}>
-                            </div>
-                            <h4 style={{color: '#666666', fontWeight: 'bold'}}>{post.info.title}</h4>
-                        </li>
-                    </div>
-                </Link>
-            </div>
+                    <Link 
+                        key={i}
+                        to={`/${this.props.tripid}/${date}`}
+                    >
+                        <div style={{width: '500px', height:'300px', padding: '20px'}}>
+                            <li>
+                                <div style={{...this.state.thumbnailStyling, backgroundImage: `url(${image})`}}>
+                                </div>
+                                <h4 style={{color: '#666666', fontWeight: 'bold'}}>{post.info.title}</h4>
+                            </li>
+                        </div>
+                    </Link>
+                </div>
             );
         });
         return thumbnails.reverse();
@@ -74,23 +74,23 @@ class BlogOverview extends Component {
             const image = require(`../res/${this.props.tripid}/img/${date}/${post.info.thumbnail}`);
             return(
                 <div className="overview-items-pulse">
-                <Link 
-                    key={i}
-                    to={`/${this.props.tripid}/${date}`}
-                >
-                    <li style={{padding: '5px'}}>
-                        <Image 
-                            style={{width: '100%'}}
-                            src={image} 
-                            alt="" 
-                            key={i} 
-                            circle
+                    <Link 
+                        key={i}
+                        to={`/${this.props.tripid}/${date}`}
+                    >
+                        <li style={{padding: '5px'}}>
+                            <Image 
+                                style={{width: '100%'}}
+                                src={image} 
+                                alt="" 
+                                key={i} 
+                                circle
 
-                        />
-                        <p style={{color: '#666666', fontWeight: 'bold'}}>{post.info.title}</p>
-                    </li>
-                </Link>
-            </div>
+                            />
+                            <p style={{color: '#666666', fontWeight: 'bold'}}>{post.info.title}</p>
+                        </li>
+                    </Link>
+                </div>
             );
         });
         return thumbnails.reverse();

@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Carousel, Image } from 'react-bootstrap';
 import Video from './Video';
 
+const propTypes = {
+    date: PropTypes.string.isRequired,
+    tripid: PropTypes.string.isRequired,
+};
 class ImageCarousel extends Component {
     constructor(props) {
         super(props);
@@ -47,5 +52,7 @@ class ImageCarousel extends Component {
         );
     }
 }
+
+ImageCarousel.propTypes = propTypes;
 
 export default ImageCarousel;

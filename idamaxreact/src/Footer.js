@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CopyrightLink from './CopyrightLink';
 
 class Footer extends Component {
     render() {
@@ -10,5 +9,20 @@ class Footer extends Component {
         );
     }
 }
+
+const CopyrightLink = () => {
+    return(
+            <p>
+                &copy; 
+                <a 
+                    style={{textDecoration: 'none'}} 
+                    href="http://maxk.se"
+                >
+                    2017 Max Körlinge
+                </a>
+            </p>
+
+    );
+};
 
 export default Footer;

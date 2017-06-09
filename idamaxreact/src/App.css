@@ -30,6 +30,16 @@ a:hover, a:visited {
     z-index: 99;
 }
 
+.overview-items-pulse {
+    transition: all 0.3s linear;
+}
+
+.overview-items-pulse:hover {
+    transform: scale3d(1.05,1.05,1);
+    z-index: 99;
+}
+
+/*
 .overview-items-pulse:hover {
     z-index: 3;
     animation-name: pulse;
@@ -47,3 +57,4 @@ a:hover, a:visited {
         transform: scale3d(1, 1, 1);
     }
 }
+*/
