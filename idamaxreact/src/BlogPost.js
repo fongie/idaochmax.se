@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Video from './Video';
 import { Image, Button, Well, Row, Col } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import 'lazysizes';
 
 /**
  * A blogpost is created and has a Header, an Author, and Content (images and text), the content
@@ -40,8 +41,9 @@ class BlogPost extends Component {
                 const image = require(`../res/${this.props.tripid}/img/${this.props.match.params.date}/${item.image}`);
                 return(
                     <Image 
+                        className="lazyload"
                         style={{marginLeft: 'auto', marginRight: 'auto'}}
-                        src={image} 
+                        data-src={image} 
                         alt="" 
                         key={i} 
                         responsive
