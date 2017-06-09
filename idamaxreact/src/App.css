@@ -1,4 +1,3 @@
-
 a:hover, a:visited {
     text-decoration: none;
 }
@@ -20,4 +19,13 @@ a:hover, a:visited {
 .fade-appear-active {
     opacity: 1;
     transition: opacity 700ms ease-out;
+}
+
+.image-pops-onhover {
+    transition: all 0.3s linear;
+}
+
+.image-pops-onhover:hover {
+    transform: scale3d(1.05,1.05,1);
+    z-index: 99;
 }

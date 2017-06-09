@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Video from './Video';
 import { LinkContainer } from 'react-router-bootstrap';
+import './App.css';
 
 //note needs a match object passed on from bildsida that has date params in it..
 class ImageGallery extends Component {
@@ -46,7 +47,7 @@ class ImageGallery extends Component {
             }
             const image = require(`../res/${this.props.tripid}/img/${this.state.date}/${item}`);
             return(
-                <div key={i} style={{cursor: 'pointer'}}>
+                <div className="image-pops-onhover" key={i} style={{cursor: 'pointer'}}>
                     <LinkContainer to={`/${this.props.tripid}/${this.state.date}/bilder/${item}`}>
                     <li>
                         <div style={{...this.state.thumbnailStyling, backgroundImage: `url(${image})`}}>
