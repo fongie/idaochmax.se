@@ -7,5 +7,7 @@ $Dsync
 .txt
 .PNG
 oldsite/
-idamaxreact/res/sydam/img/
-idamaxreact/res/indo/img/
+res/sydam/img/
+res/indo/img/
+build/
+node_modules/
