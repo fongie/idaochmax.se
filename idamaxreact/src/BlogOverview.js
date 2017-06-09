@@ -49,6 +49,7 @@ class BlogOverview extends Component {
             const post = require(`../res/${this.props.tripid}/blog/json/${date}.json`);
             const image = require(`../res/${this.props.tripid}/img/${date}/${post.info.thumbnail}`);
             return(
+                <div className="overview-items-pulse">
                 <Link 
                     key={i}
                     to={`/${this.props.tripid}/${date}`}
@@ -61,6 +62,7 @@ class BlogOverview extends Component {
                         </li>
                     </div>
                 </Link>
+            </div>
             );
         });
         return thumbnails.reverse();
@@ -71,6 +73,7 @@ class BlogOverview extends Component {
             const post = require(`../res/${this.props.tripid}/blog/json/${date}.json`);
             const image = require(`../res/${this.props.tripid}/img/${date}/${post.info.thumbnail}`);
             return(
+                <div className="overview-items-pulse">
                 <Link 
                     key={i}
                     to={`/${this.props.tripid}/${date}`}
@@ -87,6 +90,7 @@ class BlogOverview extends Component {
                         <p style={{color: '#666666', fontWeight: 'bold'}}>{post.info.title}</p>
                     </li>
                 </Link>
+            </div>
             );
         });
         return thumbnails.reverse();

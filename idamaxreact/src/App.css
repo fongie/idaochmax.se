@@ -26,6 +26,24 @@ a:hover, a:visited {
 }
 
 .image-pops-onhover:hover {
-    transform: scale3d(1.05,1.05,1);
+    transform: scale3d(1.1,1.1,1);
     z-index: 99;
+}
+
+.overview-items-pulse:hover {
+    z-index: 3;
+    animation-name: pulse;
+    animation-duration: 0.5s;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    to {
+        transform: scale3d(1, 1, 1);
+    }
 }

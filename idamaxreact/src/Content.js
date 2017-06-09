@@ -21,6 +21,7 @@ class Content extends Component {
 
         this.state = {
             showingLeftPanel: false,
+            location: { location },
         };
         this.showLeftPanel = this.showLeftPanel.bind(this);
     }
@@ -38,19 +39,17 @@ class Content extends Component {
                     </Col>
                     <Col xs={12} md={8}>
                         <Switch>
-                            <Route 
-                                exact={true}
-                                path={`/${this.props.match.params.tripid}`}
-                                render={
-                                    () => ( 
-                                        <BlogOverview 
-                                            tripid={this.props.match.params.tripid} 
-                                        />)
-                                } 
-                            />
+                                <Route 
+                                    exact={true}
+                                    path={`/${this.props.match.params.tripid}`}
+                                    render={
+                                        () => ( 
+                                            <BlogOverview 
+                                                tripid={this.props.match.params.tripid} 
+                                            />)
+                                    } 
+                                />
                             <Route
-                                location={this.props.location}
-                                key={this.props.location.key}
                                 path={`/${this.props.match.params.tripid}/:date/bilder`}
                                 render={
                                     (props) => (
@@ -62,8 +61,6 @@ class Content extends Component {
                                     )}
                                 />
                                 <Route
-                                    location={this.props.location}
-                                    key={this.props.location.key}
                                     path={`/${this.props.match.params.tripid}/:date`}
                                     render={
                                         (props) => (

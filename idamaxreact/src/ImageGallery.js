@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Video from './Video';
 import { LinkContainer } from 'react-router-bootstrap';
-import './App.css';
 
 //note needs a match object passed on from bildsida that has date params in it..
+//animation for gallery images scaling on hover is in app.css
 class ImageGallery extends Component {
     constructor(props) {
         super(props);
