@@ -3,7 +3,7 @@ import {
     Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Image } from 'react-bootstrap';
-
+import axios from 'axios';
 /**
  * BlogOverview shows thumbnails (that link to the posts) of all blogposts in this trip ID
  */
@@ -19,6 +19,7 @@ class BlogOverview extends Component {
         super(props);
         this.renderThumbnails = this.renderThumbnails.bind(this);
         this.renderNavBar = this.renderNavBar.bind(this);
+        this.fetchWordpressAPI = this.fetchWordpressAPI.bind(this);
 
         const tripInfo = require(`../res/${this.props.tripid}/tripinfo.json`);
         const blogOverviewStyling = {
@@ -44,12 +45,25 @@ class BlogOverview extends Component {
             thumbnailStyling,
         }
     }
+
+    //gets the json from wordpress, but where do i store it? learn redux for this??
+    fetchWordpressAPI(tripid) {
+        const url = 'http://wp.idaochmax.se/wp-json/wp/v2/posts';
+        const json = axios.get(url)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+    }
     renderThumbnails() {
         const thumbnails = this.state.tripInfo.dates.map((date, i) => {
             const post = require(`../res/${this.props.tripid}/blog/json/${date}.json`);
             const image = require(`../res/${this.props.tripid}/img/${date}/${post.info.thumbnail}`);
             return(
-                <div className="overview-items-pulse">
+                <div key={i*115} className="overview-items-pulse">
                     <Link 
                         key={i}
                         to={`/${this.props.tripid}/${date}`}
@@ -73,7 +87,7 @@ class BlogOverview extends Component {
             const post = require(`../res/${this.props.tripid}/blog/json/${date}.json`);
             const image = require(`../res/${this.props.tripid}/img/${date}/${post.info.thumbnail}`);
             return(
-                <div className="overview-items-pulse">
+                <div key={i*350} className="overview-items-pulse">
                     <Link 
                         key={i}
                         to={`/${this.props.tripid}/${date}`}
