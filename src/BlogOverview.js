@@ -10,9 +10,11 @@ import axios from 'axios';
 const propTypes = {
     tripid: PropTypes.string.isRequired,
     onClick: PropTypes.func,
+    useWP: PropTypes.bool,
 }
 const defaultProps = {
     isNavBar: false,
+    useWP: false,
 }
 class BlogOverview extends Component {
     constructor(props) {
@@ -45,18 +47,19 @@ class BlogOverview extends Component {
             thumbnailStyling,
         }
     }
-
     //gets the json from wordpress, but where do i store it? learn redux for this??
-    fetchWordpressAPI(tripid) {
-        const url = 'http://wp.idaochmax.se/wp-json/wp/v2/posts';
-        const json = axios.get(url)
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-
+    fetchWordpressAPI() {
+        const url = `http://wp.idaochmax.se/wp-json/wp/v2/posts?categories=3`;
+        return new Promise((resolve, reject) => {
+            axios.get(url)
+                .then((response) => {
+                    console.log(response.data);
+                    resolve(response.data);
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+        });
     }
     renderThumbnails() {
         const thumbnails = this.state.tripInfo.dates.map((date, i) => {
@@ -110,6 +113,7 @@ class BlogOverview extends Component {
         return thumbnails.reverse();
     }
     render() {
+        this.fetchWordpressAPI();
         return (
             <div>
                 <ul style={ this.state.blogOverviewStyling }>
