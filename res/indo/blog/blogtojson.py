@@ -15,6 +15,7 @@ def main(date, title, author, thumbnail):
     im_pattern = r'.jpg'
     im_pattern2 = r'.JPG'
     im_pattern3 = r'.PNG'
+    im_pattern4 = r'.jpeg'
     video_pattern = r'.mp4'
 
     try:
@@ -46,7 +47,7 @@ def main(date, title, author, thumbnail):
             break
         elif line == '\n' or line.startswith('\r'):
             continue
-        elif re.search(im_pattern, line) or re.search(im_pattern2, line) or re.search(im_pattern3, line):
+        elif re.search(im_pattern, line) or re.search(im_pattern2, line) or re.search(im_pattern3, line) or re.search(im_pattern4, line):
             print("Found image! " + line)
             jsonfil.write(r'{' + '\n')
             jsonfil.write(r'"image": "'  + line[:-1] + r'"' + '\n')

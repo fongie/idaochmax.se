@@ -49,7 +49,7 @@ class BlogOverview extends Component {
             const post = require(`../res/${this.props.tripid}/blog/json/${date}.json`);
             const image = require(`../res/${this.props.tripid}/img/${date}/${post.info.thumbnail}`);
             return(
-                <div className="overview-items-pulse">
+                <div key={i*101} className="overview-items-pulse">
                     <Link 
                         key={i}
                         to={`/${this.props.tripid}/${date}`}
@@ -67,13 +67,12 @@ class BlogOverview extends Component {
         });
         return thumbnails.reverse();
     }
-
     renderNavBar() {
         const thumbnails = this.state.tripInfo.dates.map((date, i) => {
             const post = require(`../res/${this.props.tripid}/blog/json/${date}.json`);
             const image = require(`../res/${this.props.tripid}/img/${date}/${post.info.thumbnail}`);
             return(
-                <div className="overview-items-pulse">
+                <div key={i*1001} className="overview-items-pulse">
                     <Link 
                         key={i}
                         to={`/${this.props.tripid}/${date}`}
