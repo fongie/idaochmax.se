@@ -8,7 +8,11 @@ class Home extends Component {
 
         const trips = [
             {
-                name: 'Sydamerika 2016', 
+                name: 'Kroatien 2018',
+                id: 'kroatien'
+            },
+            {
+                name: 'Sydamerika 2016',
                 id: 'sydam'
             },
             {

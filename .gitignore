@@ -9,5 +9,7 @@ $Dsync
 oldsite/
 res/sydam/img/
 res/indo/img/
+res/kroatien/img/
 build/
 node_modules/
+*.tmp
