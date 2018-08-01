@@ -29,7 +29,7 @@ def main(date, title, author, thumbnail):
     jsonfil.write(r'''{
     "info": {
 
-    "tripID": "indo",
+    "tripID": "kroatien",
     ''')
     jsonfil.write(r'"date": "' + date + r'",' + '\n')
     jsonfil.write(r'"title": "' + title + r'",' + '\n')
