@@ -1,11 +1,11 @@
 $Dsync
-.JPG
-.jpg
-.mp4
-.mov
-.avi
-.txt
-.PNG
+*.JPG
+*.jpg
+*.mp4
+*.mov
+*.avi
+*.txt
+*.PNG
 oldsite/
 res/sydam/img/
 res/indo/img/
@@ -13,3 +13,5 @@ res/kroatien/img/
 build/
 node_modules/
 *.tmp
+*/__pycache__/
+*.pyc

@@ -18,7 +18,7 @@ const CopyrightLink = () => {
                     style={{textDecoration: 'none'}} 
                     href="http://maxk.se"
                 >
-                    2018 Max Körlinge
+                    2019 Max Körlinge
                 </a>
             </p>
 

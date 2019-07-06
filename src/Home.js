@@ -8,16 +8,20 @@ class Home extends Component {
 
         const trips = [
             {
+                name: 'Dolomiterna 2019',
+                id: 'dolomiterna'
+            },
+            {
                 name: 'Kroatien 2018',
                 id: 'kroatien'
             },
             {
-                name: 'Sydamerika 2016',
-                id: 'sydam'
-            },
-            {
                 name: 'Indonesien 2017',
                 id: 'indo'
+            },
+            {
+                name: 'Sydamerika 2016',
+                id: 'sydam'
             },
         ];
         const generalStyling = {
